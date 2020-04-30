@@ -1,16 +1,21 @@
 import React from "react";
-import { Router, Route, Switch } from "dva/router";
-import IndexPage from "./routes/IndexPage";
-import Products from "./routes/Products";
-import { TodoPage } from "./routes/TodoPage";
-
+import { Router, Route, Switch, Redirect } from "dva/router";
+import { mainRoutes } from "./routes";
+import App from "./routes/App";
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={IndexPage} />
-        <Route path="/products" exact component={Products} />
-        <Route path="/todos" exact component={TodoPage} />
+        <Route
+          path="/admin"
+          render={(routeProps) => {
+            return <App {...routeProps} />;
+          }}
+        />
+        {mainRoutes.map((route) => {
+          return <Route key={route.path} {...route} />;
+        })}
+        <Redirect to="/404" />
       </Switch>
     </Router>
   );
