@@ -2,17 +2,16 @@ import React from "react";
 import { Card, Button, Table, Popconfirm, message } from "antd";
 const dataSource = [
   {
+    key: 1,
     name: "苹果电脑",
     price: 13000,
   },
   {
+    key: 2,
     name: "大碗宽面",
     price: 130,
   },
-  {
-    name: "罗技鼠标",
-    price: 100,
-  },
+  { key: 3, name: "罗技鼠标", price: 100 },
 ];
 
 const columns = [
@@ -75,7 +74,7 @@ const Product = (props) => {
           </Button>
         }
       >
-        <Table dataSource={dataSource} columns={columns} />
+        <Table bordered dataSource={dataSource} columns={columns} />
       </Card>
     </div>
   );

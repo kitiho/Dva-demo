@@ -7,11 +7,17 @@ import ProductEdit from "./routes/ProductEdit";
 
 export const mainRoutes = [
   { path: "/", component: Index, exact: true },
-  { path: "/404", component: NotFound },
-  { path: "/login", component: Login },
+  { path: "/404", exact: true, component: NotFound },
+  { path: "/login", exact: true, component: Login },
 ];
 export const adminRoutes = [
-  { path: "/admin/index", component: AdminIndex, isShow: true, title: "首页" },
+  {
+    path: "/admin/index",
+    exact: true,
+    component: AdminIndex,
+    isShow: true,
+    title: "首页",
+  },
   {
     path: "/admin/products",
     exact: true,
@@ -19,5 +25,10 @@ export const adminRoutes = [
     isShow: true,
     title: "商品管理",
   },
-  { path: "/admin/products/edit/:id?", component: ProductEdit, isShow: false },
+  {
+    path: "/admin/products/edit/:id?",
+    exact: true,
+    component: ProductEdit,
+    isShow: false,
+  },
 ];

@@ -2,9 +2,10 @@ import React from "react";
 import { Switch, Route, Redirect } from "dva/router";
 import { adminRoutes } from "../routes";
 import Layout from "../components/Layout";
+import { isLoged } from "../utils/token";
 
 const App = () => {
-  return (
+  return isLoged() ? (
     <Layout>
       <Switch>
         {adminRoutes.map((route) => {
@@ -19,9 +20,10 @@ const App = () => {
             />
           );
         })}
-        <Redirect to="/404" />
       </Switch>
     </Layout>
+  ) : (
+    <Redirect to="/login" />
   );
 };
 

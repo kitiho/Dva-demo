@@ -13,7 +13,14 @@ function RouterConfig({ history }) {
           }}
         />
         {mainRoutes.map((route) => {
-          return <Route key={route.path} {...route} />;
+          return (
+            <Route
+              key={route.path}
+              path={route.path}
+              exact={route.path}
+              component={route.component}
+            />
+          );
         })}
         <Redirect to="/404" />
       </Switch>
