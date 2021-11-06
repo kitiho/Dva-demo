@@ -17,5 +17,5 @@ app.model(require("./models/products").default);
 // 4. Router
 app.router(require("./router").default);
 
-// 5. Start
+// 5. Start test
 app.start("#root");
